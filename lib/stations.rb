@@ -23,4 +23,8 @@ class Station
   def ==(another_station)
     self.name == another_station.name && self.id == another_station.id
   end
+
+  def edit(user_input)
+    DB.exec("UPDATE stations SET name='#{user_input}' WHERE id=#{self.id};")
+  end
 end

@@ -27,4 +27,11 @@ describe Station do
     station_1.save
     expect(Station.all[0]).to eq station_1
   end
+
+  it "edits the name of the station" do
+    station_1 = Station.new({:name => "Rosebank"})
+    station_1.save
+    station_1.edit("Killarney")
+    expect(Station.all[0].name).to eq "Killarney"
+  end
 end
