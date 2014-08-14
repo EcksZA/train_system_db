@@ -1,6 +1,6 @@
 require 'pg'
 require 'rspec'
-require 'stations'
+require './lib/stations'
 
 DB = PG.connect(:dbname => 'train_system_test')
 
