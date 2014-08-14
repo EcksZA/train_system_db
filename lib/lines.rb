@@ -4,4 +4,8 @@ class Line
     @name = attributes[:name]
     @id = attributes[:id]
   end
+
+  def self.all
+    line_list = []
+  end
 end

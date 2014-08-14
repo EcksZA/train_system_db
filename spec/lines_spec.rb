@@ -10,4 +10,8 @@ describe Line do
     line_1 = Line.new({:name => "Red"})
     expect(line_1.name).to eq "Red"
   end
+
+  it "creates an empty array to list all the lines" do
+    expect(Line.all). to eq []
+  end
 end
