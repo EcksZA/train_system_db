@@ -33,4 +33,13 @@ describe Line do
     line_1.edit("Green")
     expect(Line.all[0].name).to eq "Green"
   end
+
+  it "removes the object from the lines list" do
+    line_1 = Line.new({:name => "Red"})
+    line_1.save
+    line_2 = Line.new({:name => "Blue"})
+    line_2.save
+    line_1.remove
+    expect(Line.all).to eq [line_2]
+  end
 end

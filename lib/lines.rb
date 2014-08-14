@@ -27,4 +27,8 @@ class Line
   def edit(user_input)
     DB.exec("UPDATE lines SET name='#{user_input}' WHERE id='#{self.id}';")
   end
+
+  def remove
+    DB.exec("DELETE FROM lines WHERE id=#{self.id};")
+  end
 end
