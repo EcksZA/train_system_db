@@ -23,4 +23,8 @@ class Line
   def ==(another_line)
     self.name == another_line.name && self.id == another_line.id
   end
+
+  def edit(user_input)
+    DB.exec("UPDATE lines SET name='#{user_input}' WHERE id='#{self.id}';")
+  end
 end

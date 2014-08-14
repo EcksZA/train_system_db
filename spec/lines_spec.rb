@@ -26,4 +26,11 @@ describe Line do
     line_1.save
     expect(Line.all[0]).to eq line_1
   end
+
+  it "edits the name of the line object" do
+    line_1 = Line.new({:name => "Red"})
+    line_1.save
+    line_1.edit("Green")
+    expect(Line.all[0].name).to eq "Green"
+  end
 end
