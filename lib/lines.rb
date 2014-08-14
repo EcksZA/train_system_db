@@ -19,4 +19,8 @@ class Line
     results = DB.exec("INSERT INTO lines (name) VALUES ('#{@name}') RETURNING id;")
     @id = results.first['id'].to_i
   end
+
+  def ==(another_line)
+    self.name == another_line.name && self.id == another_line.id
+  end
 end

@@ -20,4 +20,10 @@ describe Line do
     line_1.save
     expect(Line.all).to eq [line_1]
   end
+
+  it "sets the same objects, at different addresses, equal to each other" do
+    line_1 = Line.new({:name => "Red"})
+    line_1.save
+    expect(Line.all[0]).to eq line_1
+  end
 end
