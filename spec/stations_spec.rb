@@ -21,4 +21,10 @@ describe Station do
     station_1.save
     expect(Station.all).to eq [station_1]
   end
+
+  it "makes two objects that are the same equal to each other" do
+    station_1 = Station.new({:name => "Rosebank"})
+    station_1.save
+    expect(Station.all[0]).to eq station_1
+  end
 end
