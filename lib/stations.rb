@@ -8,7 +8,7 @@ class Station
 
   def self.all
     stations_list = []
-    results = DB.exec("SELECT * FROM stations")
+    results = DB.exec("SELECT * FROM stations;")
     results.each do |result|
       stations_list << Station.new({:name => result['name'], :id => result['id'].to_i})
     end
@@ -26,5 +26,9 @@ class Station
 
   def edit(user_input)
     DB.exec("UPDATE stations SET name='#{user_input}' WHERE id=#{self.id};")
+  end
+
+  def remove
+    DB.exec("DELETE FROM stations WHERE name='#{self.name}'")
   end
 end
