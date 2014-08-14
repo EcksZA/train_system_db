@@ -11,4 +11,8 @@ describe Station do
     station_1 = Station.new({:name => "Rosebank"})
     expect(station_1.name).to eq "Rosebank"
   end
+
+  it "creates an empty array to store the stations" do
+    expect(Station.all).to eq []
+  end
 end

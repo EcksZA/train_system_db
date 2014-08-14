@@ -5,4 +5,8 @@ class Station
     @name = attributes[:name]
     @id = attributes[:name]
   end
+
+  def self.all
+    list = []
+  end
 end
