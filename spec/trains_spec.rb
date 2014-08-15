@@ -9,4 +9,16 @@ describe Train do
   it "creates an empty array to store all the train objects" do
     expect(Train.all).to eq []
   end
+
+  it "saves the object" do
+    train_1 = Train.new({:name => "10A"})
+    train_1.save
+    expect(Train.all).to eq [train_1]
+  end
+
+  it "sets two equal objects, with different addresses, to be equal" do
+    train_1 = Train.new({:name => "10A"})
+    train_1.save
+    expect(Train.all[0]).to eq train_1
+  end
 end
