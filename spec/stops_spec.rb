@@ -36,4 +36,10 @@ describe Stops do
     expect(Stops.all[0].line_id).to eq 5
   end
 
+  it "deletes a stop" do
+    stop_1 = Stops.new({:station_id => 2, :line_id => 3})
+    stop_1.save
+    stop_1.delete
+    expect(Stops.all).to eq []
+  end
 end
