@@ -48,12 +48,16 @@ describe Station do
   it "lists all the lines that pass through a station" do
     station_1 = Station.new({:name => "Rosebank"})
     station_1.save
-    line_1 = Lines.new({:name => "Green"})
+    line_1 = Line.new({:name => "Green"})
     line_1.save
-    line_2 = Lines.new({:name => "Yellow"})
+    line_2 = Line.new({:name => "Yellow"})
     line_2.save
-    line_3 = Lines.new({:name => "Blue"})
+    line_3 = Line.new({:name => "Blue"})
     line_3.save
+    stop_1 = Stops.new({:station_id => station_1.id, :line_id => line_1.id})
+    stop_1.save
+    stop_2 = Stops.new({:station_id => station_1.id, :line_id => line_2.id})
+    stop_2.save
     station_1.lines
     expect(station_1.lines).to eq [line_1, line_2]
   end
