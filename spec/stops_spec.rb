@@ -11,4 +11,8 @@ describe Stops do
     expect(stop_1.station_id).to eq 2
     expect(stop_1.line_id).to eq 3
   end
+
+  it "creates an empty array to store the stops" do
+    expect(Stops.all).to eq []
+  end
 end

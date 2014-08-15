@@ -6,5 +6,9 @@ class Stops
     @line_id = attributes[:line_id]
   end
 
+  def self.all
+    stops_list = []
+  end
+
 
 end
