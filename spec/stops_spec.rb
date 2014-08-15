@@ -22,4 +22,10 @@ describe Stops do
     expect(Stops.all).to eq [stop_1]
   end
 
+  it "makes two equal objects at different addresses equal to each other" do
+    stop_1 = Stops.new({:station_id => 2, :line_id => 3})
+    stop_1.save
+    expect(Stops.all[0]).to eq stop_1
+  end
+
 end

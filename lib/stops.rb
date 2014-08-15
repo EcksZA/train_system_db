@@ -1,9 +1,10 @@
 class Stops
-  attr_reader :station_id, :line_id
+  attr_reader :station_id, :line_id, :id
 
   def initialize(attributes)
     @station_id = attributes[:station_id]
     @line_id = attributes[:line_id]
+    @id = attributes[:id]
   end
 
   def self.all
@@ -18,5 +19,9 @@ class Stops
   def save
     results = DB.exec("INSERT INTO stops (station_id, line_id) VALUES (#{self.station_id}, #{self.line_id}) RETURNING id;")
     @id = results.first['id'].to_i
+  end
+
+  def ==(another_stop)
+    self.id == another_stop.id
   end
 end
