@@ -42,4 +42,17 @@ describe Line do
     line_1.remove
     expect(Line.all).to eq [line_2]
   end
+
+  it "lists all the stations that a line passes through" do
+    line_1 = Lines.new({:name => "Green"})
+    line_1.save
+    station_1 = Stations.new({:name => "Honeydew"})
+    station_1.save
+    station_2 = Stations.new({:name => "Killarney"})
+    station_2.save
+    station_3 = Stations.new({:name => "Kyalami"})
+    station_3.save
+    line_1.stations
+    expect(line_1.stations).to eq [line_2, line_3]
+  end
 end

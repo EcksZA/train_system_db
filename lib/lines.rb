@@ -31,4 +31,16 @@ class Line
   def remove
     DB.exec("DELETE FROM lines WHERE id=#{self.id};")
   end
+
+  def stations
+    stations = []
+    results = DB.exec("SELECT stations.* FROM lines
+              JOIN stops ON (lines.id = stops.line_id)
+              JOIN stations ON (stops.station_id = stations.id)
+            WHERE lines.id = '#{self.id}';")
+    results.each do |result|
+      stations << Lines.new({:name => result['name'], :id => result['id'].to_i})
+    end
+    stations
+  end
 end
