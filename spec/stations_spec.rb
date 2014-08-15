@@ -44,7 +44,8 @@ describe Station do
     expect(Station.all).to eq [station_2]
   end
 
-  it "lists all the lines that stop at a station" do
+
+  it "lists all the lines that pass through a station" do
     station_1 = Station.new({:name => "Rosebank"})
     station_1.save
     line_1 = Lines.new({:name => "Green"})
@@ -53,6 +54,7 @@ describe Station do
     line_2.save
     line_3 = Lines.new({:name => "Blue"})
     line_3.save
-    expect(station_1.lines).to eq [line_1, line_3]
+    station_1.lines
+    expect(station_1.lines).to eq [line_1, line_2]
   end
 end
