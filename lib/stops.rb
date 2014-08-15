@@ -24,4 +24,8 @@ class Stops
   def ==(another_stop)
     self.id == another_stop.id
   end
+
+  def edit(station, line)
+    DB.exec("UPDATE stops SET station_id=#{station}, line_id=#{line} WHERE id=#{self.id};")
+  end
 end

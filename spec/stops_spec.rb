@@ -28,4 +28,12 @@ describe Stops do
     expect(Stops.all[0]).to eq stop_1
   end
 
+  it "allows for edits to be made to the stop" do
+    stop_1 = Stops.new({:station_id => 2, :line_id => 3})
+    stop_1.save
+    stop_1.edit(3, 5)
+    expect(Stops.all[0].station_id).to eq 3
+    expect(Stops.all[0].line_id).to eq 5
+  end
+
 end
