@@ -39,7 +39,7 @@ class Line
               JOIN stations ON (stops.station_id = stations.id)
             WHERE lines.id = '#{self.id}';")
     results.each do |result|
-      stations << Lines.new({:name => result['name'], :id => result['id'].to_i})
+      stations << Station.new({:name => result['name'], :id => result['id'].to_i})
     end
     stations
   end

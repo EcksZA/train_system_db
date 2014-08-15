@@ -44,15 +44,19 @@ describe Line do
   end
 
   it "lists all the stations that a line passes through" do
-    line_1 = Lines.new({:name => "Green"})
+    line_1 = Line.new({:name => "Green"})
     line_1.save
-    station_1 = Stations.new({:name => "Honeydew"})
+    station_1 = Station.new({:name => "Honeydew"})
     station_1.save
-    station_2 = Stations.new({:name => "Killarney"})
+    station_2 = Station.new({:name => "Killarney"})
     station_2.save
-    station_3 = Stations.new({:name => "Kyalami"})
+    station_3 = Station.new({:name => "Kyalami"})
     station_3.save
+    stop_1 = Stops.new({:station_id => station_2.id, :line_id => line_1.id})
+    stop_1.save
+    stop_2 = Stops.new({:station_id => station_3.id, :line_id => line_1.id})
+    stop_2.save
     line_1.stations
-    expect(line_1.stations).to eq [line_2, line_3]
+    expect(line_1.stations).to eq [station_2, station_3]
   end
 end
