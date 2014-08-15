@@ -15,4 +15,11 @@ describe Stops do
   it "creates an empty array to store the stops" do
     expect(Stops.all).to eq []
   end
+
+  it "saves all the stops" do
+    stop_1 = Stops.new({:station_id => 2, :line_id => 3})
+    stop_1.save
+    expect(Stops.all).to eq [stop_1]
+  end
+
 end

@@ -8,7 +8,15 @@ class Stops
 
   def self.all
     stops_list = []
+    results = DB.exec("SELECT * FROM stops;")
+    results.each do |result|
+      stops_list << Stops.new({:station_id => result['station_id'].to_i, :line_id => result['line_id'].to_i, :id => result['id'].to_i})
+    end
+    stops_list
   end
 
-
+  def save
+    results = DB.exec("INSERT INTO stops (station_id, line_id) VALUES (#{self.station_id}, #{self.line_id}) RETURNING id;")
+    @id = results.first['id'].to_i
+  end
 end
