@@ -22,10 +22,17 @@ describe Train do
     expect(Train.all[0]).to eq train_1
   end
 
-  it "it allows for the trains name to be updated" do
+  it "allows for the trains name to be updated" do
     train_1 = Train.new({:name => "10A"})
     train_1.save
     train_1.edit("15B")
     expect(Train.all[0].name).to eq "15B"
+  end
+
+  it "allows for the user to delete an object" do
+    train_1 = Train.new({:name => "10A"})
+    train_1.save
+    train_1.delete
+    expect(Train.all).to eq []
   end
 end

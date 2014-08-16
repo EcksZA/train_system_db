@@ -27,4 +27,8 @@ class Train
   def edit(user_input)
     DB.exec("UPDATE trains SET name='#{user_input}' WHERE id=#{self.id};")
   end
+
+  def delete
+    DB.exec("DELETE FROM trains WHERE id=#{self.id};")
+  end
 end
