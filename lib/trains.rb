@@ -23,4 +23,8 @@ class Train
   def ==(another_train)
     self.name == another_train.name && self.id == another_train.id
   end
+
+  def edit(user_input)
+    DB.exec("UPDATE trains SET name='#{user_input}' WHERE id=#{self.id};")
+  end
 end
