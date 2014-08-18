@@ -1,5 +1,5 @@
 class Train
-  attr_reader :name, :id
+  attr_reader :name, :id, :line_id
 
   def initialize(attributes)
     @name = attributes[:name]
@@ -11,13 +11,13 @@ class Train
     trains_list = []
     results = DB.exec("SELECT * FROM trains;")
     results.each do |result|
-      trains_list << Train.new({:name => result['name'], :id => result['id'].to_i})
+      trains_list << Train.new({:name => result['name'], :id => result['id'].to_i, :line_id => result['line_id'].to_i})
     end
     trains_list
   end
 
   def save
-    results = DB.exec("INSERT INTO trains (name) VALUES ('#{@name}') RETURNING id;")
+    results = DB.exec("INSERT INTO trains (name, line_id) VALUES ('#{@name}', '#{@line_id}') RETURNING id;")
     @id = results.first['id'].to_i
   end
 
