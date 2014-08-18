@@ -5,7 +5,7 @@ require './lib/stations'
 require './lib/stops'
 require './lib/trains'
 
-DB = PG.connect(:dbname => 'train_system_test')
+DB = PG.connect(:dbname => 'train_system_development')
 
 puts "Welcome to the Train Operator UI"
 puts "\n\n"
@@ -249,7 +249,7 @@ def add_train
   new_train_line_id = new_train_line.id
   puts "Enter the name of the new train"
   user_train = gets.chomp
-  new_train = Train.new({:name => user_train, :line_id => new_train_line_id.to_i})
+  new_train = Train.new({:name => user_train, :line_id => new_train_line_id})
   new_train.save
   puts "\n"
   puts "You have added the train: #{new_train.name} to the #{new_train_line.name} line"
