@@ -4,6 +4,7 @@ class Train
   def initialize(attributes)
     @name = attributes[:name]
     @id = attributes[:id]
+    @line_id = attributes[:line_id]
   end
 
   def self.all
