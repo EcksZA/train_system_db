@@ -14,7 +14,7 @@ There are no known bugs in the system, should a bug be found, please report it t
 
 The image below is the representation of the database schema used to build the program.
 
-![Alt text](https://github.com/EcksZA/train_system_db/train_system_db.png "Train System Schema")
+![Alt text](train_system_db.png "Train System Schema")
 
 
 **Operating Instruction**
